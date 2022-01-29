@@ -124,5 +124,5 @@ def index(request):
         path=obj.image.url
         test(model_key,path)
         print(MEDIA_ROOT)
-        return render(request, 'project/home.html',{'context':str("media/output/srgan_bicubic_x4/"+obj.image.name)})
+        return render(request, 'project/index.html',{'context':str("media/output/srgan_bicubic_x4/"+obj.image.name)})
         

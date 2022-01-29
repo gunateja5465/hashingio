@@ -3,6 +3,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'hdimageconverter/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet"> 
+    <title>hashing.io</title>
+</head>
+<body>
+<div class="navbar">
+	<div class="navbar_brand">
+		<img class="ni" src="{% static 'hdimageconverter./l.png' %}">
+	</div>
+	<div class="ul">
+    <a class="active" href="#main">Home</a>
+    <a href="#team1">Lets Convert</a>
+    <!-- <a href="#">Gallery</a> -->
+    <a href="#team">About</a>
+    <a href="#contact" >Contact us</a>
+    </div>
+    <span onclick="clickme()">#</span>
+      
+</div> 
+<div class="main" id="main">
+    <div class="main_c">
+        <h1>Hello Images</h1>
+        <p>Realistic-Photo-Resolution-Maximizer</p>
+        <p></p>    
+    </div>
+</div>
+<div class="services"  id="services">
+<h1>Convert</h1>
+<div class="fo">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name='blurimage' class="ff" required>
+        <div style="display: flex;justify-content: space-evenly;width: 30%;">
+            <input type="submit" value="Upload" >
+            <a style="font-weight:100; color: #f4f4f4 !important;height: 75%;width: 30%;padding: 5px; background-color: #779ecb;" href="{{context}}" download class="jjj">Download</a>
+        </div>
+            </form>
+</div>
+</div>
+<div class="team" id="team">
+    <h1>Components</h1>
+    <div class="row">
+        <div class="info">
+            <h1>SRGAN</h1>
+            <p>Super-Resolution Generative Adversarial Networks(SRGan) are an approach to generative modeling using deep learning methods. Generative modeling is an unsupervised learning task in machine learning that involves automatically discovering and learning the regularities or patterns in input data in such a way that the model can be used to generate or output new examples that plausibly could have been drawn from the original dataset.</p>
+            <p>The discriminator model takes an example from the domain as input (real or generated) and predicts a binary class label of real
+                or fake (generated).</p>
+        </div>
+        <div class="img">
+            <img class="ti" src="{% static 'hdimageconverter/gan_schema.png' %}">
+        </div>
+        
+    </div>
+    <hr>
+    <div class="row">
+        <div class="info">
+            <img class="ti" src="{% static 'hdimageconverter/srresnet.png' %}">
+        </div>
+        <div class="img">
+            <h1>SRResNet</h1>
+            <p>A Super-Resolution Residual neural Network (SRResNet) is an artificial neural network (ANN) of a kind that builds on 
+                constructs known from pyramidal cells in the cerebral cortex. Residual neural networks do this by 
+                utilizing skip connections, or shortcuts to jump over some layers. It is used to avoid the problem 
+                of vanishing gradients. It is used in the generator model.</p>
+        </div>
+    </div>
+</div>
+<div class="attach">
+    <h4>Architecture</h4>
+    <img  class='mm'src="{% static 'hdimageconverter/srgan.png' %}">
+</div>
+<div class="contact" id="contact">
+    
+        <form id="mes">
+            <h2>Contact Us</h2>
+            <input type="email" id="email" placeholder="Email Address">
+            <input type="text" placeholder="Enter Your Name">
+            <input type="text" id="message" placeholder="Your Message...">
+            <input type="submit" value="Send">
+        </form>
+    
+</div>
+<div class="footer1">
+    <h3>hashing.io&copy2020</h3>
+</div>
+<script src="{% static './prac.js' %}"></script>
+<script src="https://use.fontawesome.com/c3a51fa1e7.js"></script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'hdimageconverter/style.css' %}" >
@@ -75,4 +169,4 @@
             of vanishing gradients. It is used in the generator model.</p>
     </div>
 </body>
-</html>
+</html> -->
