@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-gfrp&beyu_2d_@z)6i*mx-(^-n!&!xpo16e26h(dmtot=l#4kt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hashingio.herokuapp.com']
-
+ALLOWED_HOSTS = []
 import os
 # Application definition
 
@@ -41,7 +40,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
