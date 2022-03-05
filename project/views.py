@@ -1,7 +1,6 @@
 import imp
 from django.shortcuts import render
 
-
 from django.shortcuts import render
 from .models import Pic
 import os
@@ -15,8 +14,6 @@ from .static.models.srresnet import build_srresnet
 from .static.models.pretrained import pretrained_models
 from .static.utils.prediction import get_sr_image
 from .static.utils.config import config
-
-
 
 def index(request):
     MEDIA_ROOT=settings.MEDIA_ROOT
@@ -60,13 +57,11 @@ def index(request):
 
             model = build_srresnet(scale=dataset_parameters.scale)
 
-            # os.makedirs(weights_directory, exist_ok=True)
             weights_file = f"{weights_directory}\generator.h5"
 
             model.load_weights(weights_file)
             print('loaded weights')
             results_path = MEDIA_ROOT+f"/output/{model_key}/"
-            # os.makedirs(results_path, exist_ok=True)
             image_paths = glob.glob(path)
             print(image_paths)
 
