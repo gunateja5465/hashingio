@@ -19,8 +19,7 @@ from PIL import Image, ImageOps
 import tensorflow as tf
 from django.conf import settings
 from .static.datasets.div2k.parameters import Div2kParameters 
-from .static.models.srresnet import build_srresnet
-from .static.models.srgan import build_discriminator
+from .static.models.srgan_generator import build_srresnet
 from .static.models.pretrained import pretrained_models
 from .static.utils.prediction import get_sr_image
 from .static.utils.config import config
@@ -70,17 +69,6 @@ def index(request):
 
             file_path =  MEDIA_ROOT+"\weights\srgan_bicubic_x4\generator.h5"
 
-            # if not os.path.exists(file_path):
-            #     os.makedirs(weights_directory, exist_ok=True)
-    
-            #     print("Couldn't find file: ", file_path, ", attempting to download a pretrained model")
-    
-            #     if model_key not in pretrained_models:
-            #         print(f"Couldn't find pretrained model with key: {model_key}, available pretrained models: {pretrained_models.key()}")
-            #     else:
-            #         download_url = pretrained_models[model_key]
-            #         file = file_path.split("/")[-1]
-            #         tf.keras.utils.get_file(file, download_url, cache_subdir=weights_directory)
             model = build_srresnet(scale=dataset_parameters.scale)
 
             # os.makedirs(weights_directory, exist_ok=True)
@@ -92,19 +80,6 @@ def index(request):
             # os.makedirs(results_path, exist_ok=True)
             image_paths = glob.glob(path)
             print(image_paths)
-            print('loaded weightsssssssssss')
-            # for image_path in image_paths:
-            #     print(image_path)
-            #     was_grayscale, lr = load_image(image_path)
-    
-            #     sr = get_sr_image(model, lr)
-            #     print('loa')
-            #     if was_grayscale:
-            #         sr = ImageOps.grayscale(sr)
-    
-            #     image_name = image_path.split("/")[-1]
-            #     sr.save(f"{results_path}{image_name}" )
-            # !zip -r images.zip output
 
             was_grayscale, lr = load_image(MEDIA_ROOT+path.replace('/media',''))
 
