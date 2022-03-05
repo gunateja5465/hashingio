@@ -1,14 +1,6 @@
 import imp
 from django.shortcuts import render
 
-# Create your views here.
-
-# def index(request):
-#     return render(request,'project/index.html')
-
-
-
-
 
 from django.shortcuts import render
 from .models import Pic
@@ -23,7 +15,6 @@ from .static.models.srgan_generator import build_srresnet
 from .static.models.pretrained import pretrained_models
 from .static.utils.prediction import get_sr_image
 from .static.utils.config import config
-
 
 
 
@@ -49,8 +40,6 @@ def index(request):
         obj.save()
        
         
-        # pa='\media'+'\weights\srgan_bicubic_x4\oo.jpg'
-        # return render(request, 'hdimageconverter/home.html',{'context':pa})
 
         def test(model_key,path):
             
