@@ -11,7 +11,7 @@ from PIL import Image, ImageOps
 import tensorflow as tf
 from django.conf import settings
 from .static.datasets.div2k.parameters import Div2kParameters 
-from .static.models.srgan_generator import build_srresnet
+from .static.models.srresnet import build_srresnet
 from .static.models.pretrained import pretrained_models
 from .static.utils.prediction import get_sr_image
 from .static.utils.config import config
